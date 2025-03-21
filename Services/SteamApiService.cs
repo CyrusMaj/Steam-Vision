@@ -25,4 +25,18 @@ public class SteamApiService
         var response = await _httpClient.GetStringAsync(url);
         return response;
     }
+
+    public async Task<List<SteamGame>> GetAllGameDetailsAsync()
+    {
+        string url = "https://api.steampowered.com/ISteamApps/GetAppList/v2/";
+        var response = await _httpClient.GetStringAsync(url);
+
+        // Deserialize JSON response
+        var steamAppList = JsonSerializer.Deserialize<SteamAppList>(response, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        });
+
+        return steamAppList?.AppList?.Apps ?? new List<SteamGame>();
+    }
 }

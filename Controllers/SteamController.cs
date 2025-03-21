@@ -12,18 +12,19 @@ public class SteamController : ControllerBase
         _steamApiService = steamApiService;
     }
 
-    [HttpGet("game-details/{appId}")]
-    public async Task<IActionResult> GetGameDetails(string appId)
-    {
-        var result = await _steamApiService.GetGameDetailsAsync(appId);
-        return Ok(result);
-    }
-
-        // New method to fetch all games
+    // Fetch list of all games
     [HttpGet("games")]
     public async Task<IActionResult> GetAllGames()
     {
         var result = await _steamApiService.GetGameListAsync();
+        return Ok(result);
+    }
+    
+    // Fetch game details by app id
+    [HttpGet("game-details/{appId}")]
+    public async Task<IActionResult> GetGameDetails(string appId)
+    {
+        var result = await _steamApiService.GetGameDetailsAsync(appId);
         return Ok(result);
     }
 }
