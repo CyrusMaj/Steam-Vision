@@ -1,7 +1,7 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+// Web API only
+builder.Services.AddControllers();
 
 // Register HttpClient for SteamApiService
 builder.Services.AddHttpClient<SteamApiService>();
@@ -17,16 +17,12 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
 
 app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
-
-// app.MapGet("/", () => "Steam API integration in ASP.NET Core!");
+// Maps attribute-routed API endpoints
+app.MapControllers();
 
 app.Run();
