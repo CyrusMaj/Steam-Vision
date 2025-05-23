@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using SteamVision.Data; // Replace with the correct namespace where AppDbContext is defined
+using SteamVision.Services; // If SteamApiService is in the Services folder
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(options =>

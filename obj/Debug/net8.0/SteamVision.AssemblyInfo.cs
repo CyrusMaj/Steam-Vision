@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SteamVision")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7c64dd117d257626ca06483feb52e0599a77669b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0d844bda746e73c09c00828d52a7cd09f08cc6cc")]
 [assembly: System.Reflection.AssemblyProductAttribute("SteamVision")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SteamVision")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

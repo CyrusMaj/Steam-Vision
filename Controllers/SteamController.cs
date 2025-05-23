@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using SteamVision.Services;
 
 [Route("api/steam")]
 [ApiController]
@@ -28,4 +29,13 @@ public class SteamController : ControllerBase
         var result = await _steamApiService.GetGameDetailsAsync(appId);
         return Ok(result);
     }
+
+    //Cache games to db
+    [HttpPost("cache-games")]
+    public async Task<IActionResult> CacheGames()
+    {
+        var count = await _steamApiService.CacheAllGamesToDatabaseAsync();
+        return Ok(new { Message = $"{count} games cached to the database." });
+    }
+
 }
