@@ -13,11 +13,11 @@ public class AppListContainer
     public List<SteamGame> Apps { get; set; }
 }
 
-public class SteamGameDto
-{
-    [JsonPropertyName("appid")]
-    public string AppId { get; set; }
+// public class SteamGameDto
+// {
+//     [JsonPropertyName("appid")]
+//     public string AppId { get; set; }
 
-    [JsonPropertyName("name")]
-    public string Name { get; set; }
-}
+//     [JsonPropertyName("name")]
+//     public string Name { get; set; }
+// }

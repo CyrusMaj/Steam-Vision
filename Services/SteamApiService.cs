@@ -17,6 +17,7 @@ namespace SteamVision.Services
             _context = context;
         }
 
+        //Raw version — not needed if using GetAllGameDetailsAsync
         public async Task<string> GetGameListAsync()
         {
             string url = $"https://api.steampowered.com/ISteamApps/GetAppList/v2/";
@@ -24,6 +25,7 @@ namespace SteamVision.Services
             return response;
         }
 
+        //Fetches individual game detail (used in full detail sync)
         public async Task<string> GetGameDetailsAsync(string appId)
         {
             string url = $"https://store.steampowered.com/api/appdetails?appids={appId}";
@@ -31,6 +33,7 @@ namespace SteamVision.Services
             return response;
         }
 
+        //Gets bulk AppId + Name list quickly
         public async Task<List<SteamGameDto>> GetAllGameDetailsAsync()
         {
             string url = "https://api.steampowered.com/ISteamApps/GetAppList/v2/";
@@ -55,6 +58,7 @@ namespace SteamVision.Services
             return steamGameDtos;
         }
 
+        //Caches new games into SQL DB
         public async Task<int> CacheAllGamesToDatabaseAsync()
         {
             var steamGames = await GetAllGameDetailsAsync();
